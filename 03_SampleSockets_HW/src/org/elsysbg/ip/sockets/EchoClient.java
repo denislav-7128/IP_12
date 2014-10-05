@@ -37,7 +37,7 @@ public class EchoClient {
 		Date userDate = formatter.parse(readLine);
 
 		final EchoClient echoClient = new EchoClient(readLine);
-		final String response = echoClient.send(formatter.format(userDate));
+		final String response = echoClient.send(userDate);
 
 		
 		System.out.println("Response: " + response);
@@ -49,7 +49,7 @@ public class EchoClient {
 
 
 
-	private String send(String ud) throws UnknownHostException, IOException, ParseException {
+	private String send(Date ud) throws UnknownHostException, IOException, ParseException {
 		final Socket clientSocket = new Socket(SERVER ,EchoServer.SERVER_PORT);
 		
 		final InputStream inputStream = clientSocket.getInputStream();
@@ -65,7 +65,7 @@ public class EchoClient {
 		Date dateNow = new Date();
 		
 		SimpleDateFormat formatter = new SimpleDateFormat("yyyy-MM-dd");
-		int diffInDays = (int) ((dateNow.getTime() - formatter.parse(ud).getTime())/ DAY_IN_MILLIS );
+		int diffInDays = (int) ((dateNow.getTime() - ud.getTime())/ DAY_IN_MILLIS );
 		System.out.println("days: "+diffInDays);
 		
 		out.println(diffInDays);
@@ -76,7 +76,7 @@ public class EchoClient {
 		
 		clientSocket.close();
 		
-		return ud;
+		return (formatter.format(ud));
 	}
 
 }
