@@ -72,7 +72,7 @@ public class EchoClient {
 		
 		out.flush();
 		
-//		final String result = in.readLine();
+		final String result = in.readLine();
 		
 		clientSocket.close();
 		
