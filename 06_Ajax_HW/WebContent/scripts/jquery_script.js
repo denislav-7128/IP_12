@@ -1,10 +1,17 @@
 $(document).ready(function(){
 	"use strict"
 
-	
-	var $element = $("<div id=dynamiccontent>123</div>");
+	// 5
+	var $element = $("<div id=dynamiccontent></div>");
 	var div = $("div#footer");
 	div.prepend($element);
+	
+	// 6
+	var $element = $("<input id='textinput'>");
+	var div = $("div#dynamiccontent");
+	div.append($element);
+	
+	
 		
 		
 });
