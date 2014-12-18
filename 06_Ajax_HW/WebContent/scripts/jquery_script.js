@@ -2,7 +2,7 @@ $(document).ready(function(){
 	"use strict"
 
 	
-	console.log($("div#footer a.tu").attr("title"));
+	console.log($("div.inscreen div#col1 p").text());
 		
 		
 });
