@@ -1,7 +1,7 @@
 $(document).ready(function(){
 	"use strict"
 
-	
+	// 5
 	var $element = $("<div id=dynamiccontent>123</div>");
 	var div = $("div#footer");
 	div.prepend($element);
@@ -18,8 +18,10 @@ $(document).ready(function(){
 	div.append($element);
 	
 	
-
-		
+	// 8	
+	var $element = $("<ul id='posts'> </ul>");
+	var div = $("div#dynamiccontent");
+	div.append($element);	
 		
 });
 
