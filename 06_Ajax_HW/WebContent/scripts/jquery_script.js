@@ -11,6 +11,11 @@ $(document).ready(function(){
 	var div = $("div#dynamiccontent");
 	div.append($element);
 	
+	// 7
+	var $element = $("<button id='addbutton'>Click here</button>");
+	var div = $("div#dynamiccontent");
+	div.append($element);
+	
 	
 		
 		
