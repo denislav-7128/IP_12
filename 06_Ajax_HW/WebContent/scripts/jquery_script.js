@@ -1,6 +1,12 @@
 $(document).ready(function(){
 	"use strict"
 
+	// 4
+	var $element = $("<li id='menu-item-last' > <a href=>new button</a></li>");
+	var list = $("ul#menu-top-level-menu");
+	list.append($element);
+
+
 	// 5
 	var $element = $("<div id=dynamiccontent>123</div>");
 	var div = $("div#footer");
@@ -23,6 +29,14 @@ $(document).ready(function(){
 	var div = $("div#dynamiccontent");
 	div.append($element);	
 		
+
+	// 9
+	$("ul#menu-top-level-menu.menu li#menu-item-last").click(function(){
+		alert("hello world");	
+	});
+	 
+	
+
 });
 
 
