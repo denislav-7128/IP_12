@@ -32,7 +32,8 @@ $(document).ready(function(){
 
 	// 9
 	$("ul#menu-top-level-menu.menu li#menu-item-last").click(function(){
-		alert("hello world");	
+		// 10
+		$("div#col2").insertBefore("div#col1");
 	});
 	 
 	
