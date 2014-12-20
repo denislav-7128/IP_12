@@ -38,6 +38,52 @@ $(document).ready(function(){
 	 
 	
 
+
+
+
+
+	// 9
+	function handleError(error) {
+		console.error("error", error, arguments);
+	}
+
+	function appendToList(list, post) {
+		var newElement = $("<li/>");
+		newElement.text(post.title);
+		list.append(newElement);
+	}
+	
+	function processResponse(response) {
+		var list = $('ul#posts');
+
+		var i=0;
+		$.each(response/*.slice(0,5)*/, function(){
+			// response[i]
+			console.log(this.title);
+			appendToList(list, this);
+
+			if (++i >= 5) {
+				return false;
+			}
+
+		});
+	}
+
+
+	$.ajax('http://jsonplaceholder.typicode.com/posts', {
+		  method: 'GET'
+	}).then(processResponse, handleError);
+	
+	
+	
+	
+
+
+
+
+
+
+
 });
 
 
