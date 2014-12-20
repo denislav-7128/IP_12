@@ -40,8 +40,6 @@ $(document).ready(function(){
 
 
 
-
-
 	// 11
 	function handleError(error) {
 		console.error("error", error, arguments);
@@ -74,6 +72,20 @@ $(document).ready(function(){
 		  method: 'GET'
 	}).then(processResponse, handleError);
 	
+	
+	
+	
+	// 12
+	$("button#addbutton").click(function() {
+		var itemNameInput = $('input#textinput');			
+		var name = itemNameInput.val();
+
+			if(!name) {
+				alert("you must enter text");
+				return;
+			}
+		
+	});
 	
 	
 	
