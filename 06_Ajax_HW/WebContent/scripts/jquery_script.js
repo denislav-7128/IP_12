@@ -97,6 +97,20 @@ $(document).ready(function(){
 					  }
 				}).then(function(data) {
 				  newId = data.id;
+				  
+				  
+					//14
+					$.ajax('http://jsonplaceholder.typicode.com/posts/'+newId, {
+						  method: 'GET'
+					}).then(function(data){
+
+						var list = $('ul#posts');
+					
+						var newElement = $("<li/>");
+						newElement.text(data.title);
+						list.append(newElement);
+					});
+					  
 				});
 			}
 	});
