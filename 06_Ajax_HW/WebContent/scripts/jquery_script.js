@@ -83,16 +83,31 @@ $(document).ready(function(){
 			if(!name) {
 				alert("you must enter text");
 				return;
+	
+			// 13
+			} else {
+				var newId=0;
+
+				$.ajax('http://jsonplaceholder.typicode.com/posts', {
+					method: 'POST',
+					data: {
+					    title: name,
+					    body: 'body',
+					    userId: 1
+					  }
+				}).then(function(data) {
+				  newId = data.id;
+				});
 			}
-		
 	});
 	
 	
 	
-
-
-
-
+	
+	
+	
+	
+	
 
 
 
