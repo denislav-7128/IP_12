@@ -94,7 +94,8 @@ $(document).ready(function(){
 					data: {
 					    title: name,
 					    body: 'body',
-					    userId: 1
+					    userId: 1,
+					    id: (100+count)
 					  }
 				}).then(function(data) {
 				  newId = data.id;
