@@ -74,7 +74,7 @@ $(document).ready(function(){
 	
 	
 	
-	
+	var count=0;
 	// 12
 	$("button#addbutton").click(function() {
 		var itemNameInput = $('input#textinput');			
@@ -87,6 +87,7 @@ $(document).ready(function(){
 			// 13
 			} else {
 				var newId=0;
+				count++;
 
 				$.ajax('http://jsonplaceholder.typicode.com/posts', {
 					method: 'POST',
@@ -106,9 +107,23 @@ $(document).ready(function(){
 
 						var list = $('ul#posts');
 					
-						var newElement = $("<li/>");
-						newElement.text(data.title);
+						var newElement = $("<li>"+(data.title)+"</li><button id='delete"+count+"' >X</button>");
+						// newElement.text(data.title);
 						list.append(newElement);
+						
+						
+						// 15
+						for (var i=1; i<=count; i++) {
+	
+							$("button#delete"+i).click(function(){
+				                        	alert("deleting"+ (i-1));
+								throw new Error("Something went badly wrong!"); //break
+							});
+						} //for
+						
+						
+						
+						
 					});
 					  
 				});
