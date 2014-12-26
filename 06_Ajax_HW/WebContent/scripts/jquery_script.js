@@ -117,7 +117,20 @@ $(document).ready(function(){
 						for (var i=1; i<=count; i++) {
 	
 							$("button#delete"+i).click(function(){
-				                        	alert("deleting"+ (i-1));
+				                        	
+				                        	// 16
+								var x;
+								if (confirm("Press a button!") == true) {
+							
+									$.ajax('http://jsonplaceholder.typicode.com/posts/'+(data.id), {
+										method: 'DELETE'
+									}).then(function(){
+										$("button#delete"+(i-1)).toggle();	
+										$("li#li"+(i-1)).toggle();	
+									});
+						
+								}
+							
 								throw new Error("Something went badly wrong!"); //break
 							});
 						} //for
