@@ -29,6 +29,12 @@ $(document).ready(function(){
 	var div = $("div#dynamiccontent");
 	div.append($element);	
 		
+	// 17
+	var $element = $("<input id='newInput' />");
+	var div = $("div#dynamiccontent");
+	div.prepend($element);
+	
+	
 
 	// 9
 	$("ul#menu-top-level-menu.menu li#menu-item-last").click(function(){
