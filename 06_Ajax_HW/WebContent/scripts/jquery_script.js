@@ -36,6 +36,18 @@ $(document).ready(function(){
 	
 	
 
+	// 18
+	$("input#newInput").on('change',function(){
+		$.ajax('http://jsonplaceholder.typicode.com/posts?userId=' + ($("input#newInput").val() ), {
+			method: 'GET'
+		}).then(processResponse2, handleError);
+	});
+	
+	
+	
+	
+	
+	
 	// 9
 	$("ul#menu-top-level-menu.menu li#menu-item-last").click(function(){
 		// 10
@@ -72,6 +84,22 @@ $(document).ready(function(){
 
 		});
 	}
+	
+	
+	
+	
+	function processResponse2(response) {
+		var list = $('ul#posts');
+
+		$.each(response/*.slice(0,5)*/, function(){
+			console.log(this.title);
+			appendToList(list, this);
+
+			return false;
+		});
+	}
+	
+	
 
 
 	$.ajax('http://jsonplaceholder.typicode.com/posts', {
