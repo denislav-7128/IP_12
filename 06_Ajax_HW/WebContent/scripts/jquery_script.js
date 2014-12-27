@@ -37,7 +37,15 @@ $(document).ready(function(){
 	
 
 	// 18
+	var c=0;
 	$("input#newInput").on('change',function(){
+		
+		//19
+		c++;
+		//if (c==1) {
+			$("ul#posts").empty();
+		//}
+		
 		$.ajax('http://jsonplaceholder.typicode.com/posts?userId=' + ($("input#newInput").val() ), {
 			method: 'GET'
 		}).then(processResponse2, handleError);
