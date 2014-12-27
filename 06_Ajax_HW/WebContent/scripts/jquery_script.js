@@ -42,7 +42,7 @@ $(document).ready(function(){
 		
 		//19
 		c++;
-		if (c==1) {1
+		if (c==1) {
 			$("ul#posts").empty();
 		}
 		
