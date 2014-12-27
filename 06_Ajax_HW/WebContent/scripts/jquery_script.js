@@ -42,9 +42,9 @@ $(document).ready(function(){
 		
 		//19
 		c++;
-		//if (c==1) {
+		if (c==1) {1
 			$("ul#posts").empty();
-		//}
+		}
 		
 		$.ajax('http://jsonplaceholder.typicode.com/posts?userId=' + ($("input#newInput").val() ), {
 			method: 'GET'
@@ -95,15 +95,41 @@ $(document).ready(function(){
 	
 	
 	
-	
+	var c2=0;
 	function processResponse2(response) {
 		var list = $('ul#posts');
 
 		$.each(response/*.slice(0,5)*/, function(){
-			console.log(this.title);
-			appendToList(list, this);
+			c2++;
+			
+			var newElement = $("<li id='li"+c2+"'/>");
+			newElement.text(this.title);
+			list.append(newElement);
+			
+			// 20
+			var list2 = $('ul#posts');
+			var newElement = $("<button id='del"+c2+"' >X</button>");
+			list2.append(newElement);
+
+			for (var i=1; i<=c2; i++) {
+
+				$("button#del"+i).click(function(){
+					var x;
+					if (confirm("Press a button!") == true) {
+						$.ajax('http://jsonplaceholder.typicode.com/posts/' + (this.id), {
+							method: 'DELETE'
+						}).then(function(){
+							$("button#del"+(i-1)).toggle();	
+							$("li#li"+(i-1)).toggle();	
+						});
+					} 
+
+					throw new Error("Something went badly wrong!"); 
+				});
+			} //for
 
 			return false;
+			
 		});
 	}
 	
